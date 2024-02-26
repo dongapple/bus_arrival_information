@@ -11,9 +11,27 @@ interface InputDaySmallProps {
 
 const StyledInputWrapper = styled.div``;
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  display: none;
 
-const StyledLabel = styled.label``;
+  &:checked + label {
+    background-color: ${colors.primary900};
+    color: ${colors.white};
+  }
+`;
+
+const StyledLabel = styled.label`
+  background-color: ${colors.white};
+  color: ${colors.black};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+`;
+
 const InputDaySmall: React.FC<InputDaySmallProps> = ({
   ischecked,
   text,
