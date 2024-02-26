@@ -47,11 +47,11 @@ const InputDaySmall: React.FC<InputDaySmallProps> = ({
     <StyledInputWrapper onClick={onClick}>
       <StyledInput
         type="checkbox"
-        id="text"
+        id={text}
         checked={isCheckedState}
         onChange={handleInputChange}
       />
-      <StyledLabel htmlFor="text" className="body5">
+      <StyledLabel htmlFor={text} className="body5">
         {text}
       </StyledLabel>
     </StyledInputWrapper>
