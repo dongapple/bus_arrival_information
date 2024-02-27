@@ -26,7 +26,7 @@ const ToggleLabel = styled.label<ToggleProps>`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${colors.gray900};
+  background-color: ${colors.white};
   transition: 0.4s;
   border-radius: 0.875rem;
 
