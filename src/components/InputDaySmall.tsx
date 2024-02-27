@@ -9,20 +9,14 @@ interface InputDaySmallProps {
   onClick: () => void;
 }
 
-const StyledInputWrapper = styled.div``;
-
 const StyledInput = styled.input`
   display: none;
-
-  &:checked + label {
-    background-color: ${colors.primary900};
-    color: ${colors.white};
-  }
 `;
 
-const StyledLabel = styled.label`
-  background-color: ${colors.white};
-  color: ${colors.black};
+const StyledLabel = styled.label<{ checked: boolean }>`
+  background-color: ${(props) =>
+    props.checked ? colors.primary900 : colors.white};
+  color: ${(props) => (props.checked ? colors.white : colors.black)};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,17 +38,17 @@ const InputDaySmall: React.FC<InputDaySmallProps> = ({
   };
 
   return (
-    <StyledInputWrapper onClick={onClick}>
+    <div onClick={onClick}>
       <StyledInput
         type="checkbox"
         id={text}
         checked={isCheckedState}
         onChange={handleInputChange}
       />
-      <StyledLabel htmlFor={text} className="body5">
+      <StyledLabel checked={isCheckedState} htmlFor={text} className="body5">
         {text}
       </StyledLabel>
-    </StyledInputWrapper>
+    </div>
   );
 };
 
