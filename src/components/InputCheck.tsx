@@ -4,7 +4,7 @@ import '@/themes/typography.css';
 import * as colors from '@/themes/color';
 import { check } from '@/assets/svg-icons';
 
-interface InputDaySmallProps {
+interface InputCheckProps {
   ischecked: boolean;
   text: string;
   onClick: () => void;
@@ -40,7 +40,7 @@ const StyledLabel = styled.label<{ checked: boolean }>`
   }
 `;
 
-const InputCheck: React.FC<InputDaySmallProps> = ({
+const InputCheck: React.FC<InputCheckProps> = ({
   ischecked,
   text,
   onClick,
