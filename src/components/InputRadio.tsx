@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import '@/themes/typography.css';
 import * as colors from '@/themes/color';
 
 interface InputRadioProps {
-  ischecked: boolean;
+  isChecked: boolean;
   text: string;
+  name: string;
   onClick: () => void;
 }
 
@@ -38,23 +38,23 @@ const StyledLabel = styled.label<{ checked: boolean }>`
 `;
 
 const InputRadio: React.FC<InputRadioProps> = ({
-  ischecked,
+  isChecked,
   text,
+  name,
   onClick,
 }) => {
-  const [isCheckedState, setIsChecked] = useState(ischecked);
-
   const handleInputChange = () => {
-    setIsChecked(!isCheckedState);
+    onClick(); // 선택 시 추가적인 처리가 필요하다면 이 곳에 추가
   };
 
   return (
-    <StyledLabel htmlFor={text} className="body4" checked={isCheckedState}>
+    <StyledLabel htmlFor={text} className="body4" checked={isChecked}>
       {text}
       <StyledInput
         type="radio"
         id={text}
-        checked={isCheckedState}
+        name={name}
+        checked={isChecked}
         onChange={handleInputChange}
       />
     </StyledLabel>
