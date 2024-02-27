@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import '@/themes/typography.css';
-import * as colors from '@/themes/color.js';
+import * as colors from '@/themes/color';
+import { check } from '@/assets/svg-icons';
 
 interface InputDaySmallProps {
   ischecked: boolean;
@@ -30,6 +31,10 @@ const StyledLabel = styled.label<{ checked: boolean }>`
     height: 1rem;
     background-color: ${(props) =>
       props.checked ? colors.primary900 : colors.white};
+    background-image: url(${(props) => (props.checked ? check : null)});
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 0.0625rem;
     box-shadow: 0 0 0 0.0625rem ${colors.primary900} inset;
     border-radius: 0.2rem;
   }
