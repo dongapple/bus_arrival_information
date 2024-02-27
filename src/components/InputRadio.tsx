@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import '@/themes/typography.css';
 import * as colors from '@/themes/color';
-import { check } from '@/assets/svg-icons';
 
-interface InputDaySmallProps {
+interface InputRadioProps {
   ischecked: boolean;
   text: string;
   onClick: () => void;
@@ -29,18 +28,16 @@ const StyledLabel = styled.label<{ checked: boolean }>`
     transform: translateY(-50%);
     width: 1rem;
     height: 1rem;
-    background-color: ${(props) =>
-      props.checked ? colors.primary900 : colors.white};
-    background-image: url(${(props) => (props.checked ? check : null)});
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-color: ${colors.white};
     border: 0.0625rem;
-    box-shadow: 0 0 0 0.0625rem ${colors.primary900} inset;
-    border-radius: 0.2rem;
+    box-shadow: 0 0 0 ${(props) => (props.checked ? `0.25rem` : `.0625rem`)}
+      ${(props) => (props.checked ? colors.primary900 : colors.primary100)}
+      inset;
+    border-radius: 0.5rem;
   }
 `;
 
-const InputCheck: React.FC<InputDaySmallProps> = ({
+const InputRadio: React.FC<InputRadioProps> = ({
   ischecked,
   text,
   onClick,
@@ -52,18 +49,16 @@ const InputCheck: React.FC<InputDaySmallProps> = ({
   };
 
   return (
-    <div onClick={onClick}>
-      <StyledLabel htmlFor={text} className="body4" checked={isCheckedState}>
-        {text}
-        <StyledInput
-          type="checkbox"
-          id={text}
-          checked={isCheckedState}
-          onChange={handleInputChange}
-        />
-      </StyledLabel>
-    </div>
+    <StyledLabel htmlFor={text} className="body4" checked={isCheckedState}>
+      {text}
+      <StyledInput
+        type="radio"
+        id={text}
+        checked={isCheckedState}
+        onChange={handleInputChange}
+      />
+    </StyledLabel>
   );
 };
 
-export default InputCheck;
+export default InputRadio;
