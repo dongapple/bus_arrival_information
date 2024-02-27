@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import '@/themes/typography.css';
-import * as colors from '@/themes/color.js';
+import * as colors from '@/themes/color';
 
 interface InputDaySmallProps {
   ischecked: boolean;
