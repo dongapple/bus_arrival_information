@@ -46,6 +46,8 @@ const StyledDiv = styled.div<{ column?: boolean; gap?: string }>`
 
   color: ${colors.black};
   background-color: ${colors.primary100};
+
+  min-height: 26px;
 `;
 
 const StyledButtonsContainer = styled.div`
@@ -127,7 +129,8 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
 
             <li>
               <StyledH3 className="title3">버스 정류장 이름</StyledH3>
-              <StyledDiv column>
+              <StyledDiv column gap="0.5rem">
+                <InputCheck ischecked={false} text="8-1" onClick={() => {}} />
                 <InputCheck ischecked={false} text="8-1" onClick={() => {}} />
               </StyledDiv>
               <StyledWarning className="body7">
@@ -162,7 +165,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
 
             <li>
               <StyledH3 className="title3">알람 반복</StyledH3>
-              <StyledDiv>
+              <StyledDiv gap="1rem">
                 <InputDaySmall ischecked={false} text="월" onClick={() => {}} />
                 <InputDaySmall ischecked={false} text="월" onClick={() => {}} />
                 <InputDaySmall ischecked={false} text="월" onClick={() => {}} />
@@ -174,7 +177,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
 
             <li>
               <StyledH3 className="title3">알람 간격</StyledH3>
-              <StyledDiv>
+              <StyledDiv gap="2rem">
                 <InputCheck ischecked={false} text="직전" onClick={() => {}} />
                 <InputCheck ischecked={false} text="5분전" onClick={() => {}} />
               </StyledDiv>
