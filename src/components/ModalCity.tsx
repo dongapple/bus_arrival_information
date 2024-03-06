@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import * as colors from '@/themes/color';
-import { chevronBottom } from '@/assets/svg-icons';
 import InputRadio from './InputRadio';
 import ButtonsContainer from './ButtonsContainer';
+import ButtonCheveron from './ButtonCheveron';
+import { select, mylocation } from '@/assets/svg-icons';
 
 interface ModalSettingProps {}
 
@@ -14,11 +15,6 @@ const StyledSection = styled.section`
   margin: 0 1rem 0 1rem;
   padding: 0 1rem 0 1rem;
   // background-color: ${colors.primary500};
-`;
-
-const StyledChevronBottom = styled.button`
-  background-color: ${colors.white};
-  border: none;
 `;
 
 const StyledForm = styled.form`
@@ -33,6 +29,31 @@ const StyledUl = styled.ul`
   gap: 0.5rem;
 `;
 
+const StyledSelectionContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  // background-color: red;
+`;
+
+const StyledSelectionButton = styled.button<{ $select?: string }>`
+  border: 0.0625rem solid ${colors.primary900};
+  border-radius: 2rem;
+  background-color: ${(props) =>
+    props.$select == 'myLoction' ? colors.primary100 : colors.primary900};
+  color: ${(props) =>
+    props.$select == 'myLoction' ? colors.primary900 : colors.white};
+  padding: 0.25rem 0rem;
+  width: 100%;
+  min-width: 6.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+`;
+
 const Divider = styled.div`
   border-top: 2px solid ${colors.gray300};
 `;
@@ -41,15 +62,19 @@ const ModalCity: React.FC<ModalSettingProps> = ({}) => {
   return (
     <>
       <StyledSection>
-        <StyledChevronBottom>
-          <img src={chevronBottom} alt="" />
-        </StyledChevronBottom>
+        <ButtonCheveron />
         <span>현재위치</span>
         <StyledForm>
-          <div>
-            <button>내위치</button>
-            <button>지역선택</button>
-          </div>
+          <StyledSelectionContainer>
+            <StyledSelectionButton $select="myLoction" className="title3">
+              <img src={mylocation} alt="내위치 아이콘" />
+              내위치
+            </StyledSelectionButton>
+            <StyledSelectionButton className="title3">
+              <img src={select} alt="내위치 아이콘" />
+              지역선택
+            </StyledSelectionButton>
+          </StyledSelectionContainer>
           <Divider />
 
           <StyledUl>
