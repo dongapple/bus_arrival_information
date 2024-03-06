@@ -4,8 +4,8 @@ import '@/themes/typography.css';
 import InputCheck from './InputCheck';
 import InputDaySmall from './InputDaySmall';
 import * as colors from '@/themes/color';
-import { chevronBottom } from '@/assets/svg-icons';
 import ButtonsContainer from './ButtonsContainer';
+import ButtonCheveron from './ButtonCheveron';
 
 interface ModalSettingProps {}
 
@@ -83,11 +83,6 @@ const StyledNumber = styled.input`
   }
 `;
 
-const StyledChevronBottom = styled.button`
-  background-color: ${colors.white};
-  border: none;
-`;
-
 const StyledWarning = styled.p`
   padding-top: 0.25rem;
   color: ${colors.red};
@@ -97,9 +92,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
   return (
     <>
       <StyledSection>
-        <StyledChevronBottom>
-          <img src={chevronBottom} alt="" />
-        </StyledChevronBottom>
+        <ButtonCheveron />
         <StyledForm>
           <StyledUl>
             <li>
