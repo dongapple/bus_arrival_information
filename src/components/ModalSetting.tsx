@@ -5,6 +5,7 @@ import InputCheck from './InputCheck';
 import InputDaySmall from './InputDaySmall';
 import * as colors from '@/themes/color';
 import { chevronBottom } from '@/assets/svg-icons';
+import ButtonsContainer from './ButtonsContainer';
 
 interface ModalSettingProps {}
 
@@ -12,7 +13,6 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
   margin: 0 1rem 0 1rem;
   padding: 0 1rem 0 1rem;
   // background-color: ${colors.primary500};
@@ -48,14 +48,6 @@ const StyledDiv = styled.div<{ column?: boolean; gap?: string }>`
   background-color: ${colors.primary100};
 
   min-height: 26px;
-`;
-
-const StyledButtonsContainer = styled.div`
-  position: fixed;
-  bottom: 0px;
-  left: 1rem;
-
-  width: calc(100% - 2rem);
 `;
 
 const StyledSearch = styled.input`
@@ -94,15 +86,6 @@ const StyledNumber = styled.input`
 const StyledChevronBottom = styled.button`
   background-color: ${colors.white};
   border: none;
-`;
-
-const StyledButton = styled.button<{ type?: string }>`
-  width: 50%;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: ${(props) =>
-    props.type === 'submit' ? colors.primary900 : colors.primary100};
-  color: ${(props) => (props.type === 'submit' ? colors.white : colors.red)};
 `;
 
 const StyledWarning = styled.p`
@@ -186,14 +169,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
               </StyledWarning>
             </li>
           </StyledUl>
-          <StyledButtonsContainer>
-            <StyledButton className="title3" type="button">
-              삭제
-            </StyledButton>
-            <StyledButton className="title3" type="submit">
-              저장
-            </StyledButton>
-          </StyledButtonsContainer>
+          <ButtonsContainer cancle="삭제" submit="저장" />
         </StyledForm>
       </StyledSection>
     </>
