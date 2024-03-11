@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 import '@/themes/typography.css';
 import InputCheck from './InputCheck';
 import InputDaySmall from './InputDaySmall';
@@ -7,20 +7,35 @@ import * as colors from '@/themes/color';
 import ButtonsContainer from './ButtonsContainer';
 import ButtonCheveron from './ButtonCheveron';
 
-interface ModalSettingProps {}
+interface ModalSettingProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-const StyledSection = styled.section`
+const slideOut = keyframes`
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+`;
+
+const StyledSection = styled.section<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin: 0 1rem 0 1rem;
   padding: 0 1rem 0 1rem;
+
+  height: 100%;
   // background-color: ${colors.primary500};
+
+  transform: translateY(${({ $isOpen }) => ($isOpen ? '0%' : '100%')});
+  animation: ${({ $isOpen }) => ($isOpen ? 'none' : slideOut)} 0.3s ease-in-out;
 `;
 
-const StyledForm = styled.form`
-  /* 여기에 폼의 스타일을 추가하세요 */
-`;
+const StyledForm = styled.form``;
 
 const StyledUl = styled.ul`
   display: flex;
@@ -35,10 +50,10 @@ const StyledH3 = styled.h3`
   background-color: ${colors.primary900};
 `;
 
-const StyledDiv = styled.div<{ column?: boolean; gap?: string }>`
+const StyledDiv = styled.div<{ $column?: boolean; $gap?: string }>`
   display: flex;
-  flex-direction: ${(props) => (props.column ? 'column' : 'row')};
-  gap: ${(props) => (props.gap ? props.gap : `0rem`)};
+  flex-direction: ${(props) => (props.$column ? 'column' : 'row')};
+  gap: ${(props) => (props.$gap ? props.$gap : `0rem`)};
   justify-content: center;
 
   padding: 0.5rem 1rem;
@@ -88,11 +103,35 @@ const StyledWarning = styled.p`
   color: ${colors.red};
 `;
 
-const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
+const ModalSetting: React.FC<ModalSettingProps> = ({ isOpen, onClose }) => {
+  const WeekDays = ['일', '월', '화', '수', '목', '금', '토'];
+  interface WeekDaysType {
+    [day: string]: boolean;
+  }
+
+  const [selectedDays, setSelectedDays] = useState<WeekDaysType>({
+    일: false,
+    월: false,
+    화: false,
+    수: false,
+    목: false,
+    금: false,
+    토: false,
+  });
+
+  if (!isOpen) return null;
+
+  const toggleDay = (day: string) => {
+    setSelectedDays((prevState) => ({
+      ...prevState,
+      [day]: !prevState[day],
+    }));
+  };
+
   return (
     <>
-      <StyledSection>
-        <ButtonCheveron />
+      <StyledSection $isOpen={isOpen}>
+        <ButtonCheveron onClick={onClose} />
         <StyledForm>
           <StyledUl>
             <li>
@@ -100,13 +139,13 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
                 type="search"
                 placeholder="버스 정류장 이름을 입력해 주세요"
                 className="body4"
+                id="12345"
               />
             </li>
 
             <li>
               <StyledH3 className="title3">버스 정류장 이름</StyledH3>
-              <StyledDiv column gap="0.5rem">
-                <InputCheck ischecked={false} text="8-1" onClick={() => {}} />
+              <StyledDiv $column $gap="0.5rem">
                 <InputCheck ischecked={false} text="8-1" onClick={() => {}} />
               </StyledDiv>
               <StyledWarning className="body7">
@@ -132,6 +171,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
                   type="number"
                   min={0}
                   max={10}
+                  id="123"
                 />
               </StyledDiv>
               <StyledWarning className="body7">
@@ -141,10 +181,15 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
 
             <li>
               <StyledH3 className="title3">알람 반복</StyledH3>
-              <StyledDiv gap="1rem">
-                <InputDaySmall ischecked={false} text="월" onClick={() => {}} />
-                <InputDaySmall ischecked={false} text="월" onClick={() => {}} />
-                <InputDaySmall ischecked={false} text="월" onClick={() => {}} />
+              <StyledDiv $gap="1rem">
+                {WeekDays.map((day) => (
+                  <InputDaySmall
+                    key={day}
+                    isChecked={selectedDays[day]}
+                    text={day.toUpperCase()}
+                    onClick={() => toggleDay(day)}
+                  />
+                ))}
               </StyledDiv>
               <StyledWarning className="body7">
                 미선택 시 알람이 한 번만 울립니다.
@@ -153,7 +198,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({}) => {
 
             <li>
               <StyledH3 className="title3">알람 간격</StyledH3>
-              <StyledDiv gap="2rem">
+              <StyledDiv $gap="2rem">
                 <InputCheck ischecked={false} text="직전" onClick={() => {}} />
                 <InputCheck ischecked={false} text="5분전" onClick={() => {}} />
               </StyledDiv>
