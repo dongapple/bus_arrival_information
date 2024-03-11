@@ -1,23 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import '@/themes/typography.css';
-import * as colors from '@/themes/color';
 import { chevronBottom } from '@/assets/svg-icons';
 
-interface ButtonCheveronProps {}
+interface ButtonCheveronProps {
+  onClick: () => void;
+}
 
 const StyledChevronBottom = styled.button`
-  background-color: ${colors.white};
+  background-color: transparent;
   border: none;
 `;
 
-const ButtonCheveron: React.FC<ButtonCheveronProps> = ({}) => {
+const ButtonCheveron: React.FC<ButtonCheveronProps> = ({ onClick }) => {
+  const handleClick = () => {
+    onClick();
+  };
+
   return (
-    <>
-      <StyledChevronBottom>
-        <img src={chevronBottom} alt="" />
-      </StyledChevronBottom>
-    </>
+    <StyledChevronBottom onClick={handleClick}>
+      <img src={chevronBottom} alt="chevron icon" />
+    </StyledChevronBottom>
   );
 };
 
