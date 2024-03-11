@@ -4,7 +4,7 @@ import '@/themes/typography.css';
 import * as colors from '@/themes/color';
 
 interface InputDaySmallProps {
-  ischecked: boolean;
+  isChecked: boolean;
   text: string;
   onClick: () => void;
 }
@@ -27,11 +27,11 @@ const StyledLabel = styled.label<{ checked: boolean }>`
 `;
 
 const InputDaySmall: React.FC<InputDaySmallProps> = ({
-  ischecked,
+  isChecked,
   text,
   onClick,
 }) => {
-  const [isCheckedState, setIsChecked] = useState(ischecked);
+  const [isCheckedState, setIsChecked] = useState(isChecked);
 
   const handleInputChange = () => {
     setIsChecked(!isCheckedState);
