@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Headline 스타일 */
+.headline1 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+}
+
+.headline2 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  font-weight: bold;
+}
+
+.headline3 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+  font-weight: bold;
+}
+
+.headline4 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+
+.headline4 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  font-weight: bold;
+}
+
+/* Title 스타일 */
+.title1 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.375rem;
+  line-height: 2.0625rem;
+  font-weight: medium;
+}
+
+.title2 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+  font-weight: medium;
+}
+
+.title3 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1rem;
+  line-height: 1.3125rem;
+  font-weight: medium;
+}
+
+.title4 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  font-weight: medium;
+}
+
+.title5 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: medium;
+}
+
+/* Body 스타일 */
+.body1 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.375rem;
+  line-height: 2.0625rem;
+  font-weight: regular;
+}
+
+.body2 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  font-weight: regular;
+}
+
+.body3 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+  font-weight: regular;
+}
+
+.body4 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: regular;
+}
+
+.body5 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  font-weight: regular;
+}
+
+.body6 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: regular;
+}
+
+.body7 {
+  font-family: 'Pretendard-Regular', sans-serif;
+  font-size: 0.625rem;
+  line-height: 0.9375rem;
+  font-weight: regular;
+}

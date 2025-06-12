@@ -1,0 +1,16 @@
+export { default as bookmarkOn } from './bookmark-on.svg';
+export { default as bookmarkOff } from './bookmark-off.svg';
+export { default as busRed } from './bus-red.svg';
+export { default as busBlue } from './bus-blue.svg';
+export { default as busGreen } from './bus-green.svg';
+export { default as busYellow } from './bus-yellow.svg';
+export { default as chevronBottom } from './chevron-bottom.svg';
+export { default as check } from './icon-check.svg';
+export { default as delete } from './icon-delete.svg';
+export { default as info } from './icon-info.svg';
+export { default as location } from './icon-location.svg';
+export { default as mylocation } from './icon-mylocation.svg';
+export { default as plus } from './icon-plus.svg';
+export { default as select } from './icon-select.svg';
+export { default as setting } from './icon-setting.svg';
+export { default as road } from './road.svg';
